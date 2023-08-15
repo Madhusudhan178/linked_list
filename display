@@ -1,0 +1,45 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+class Node{
+     public:
+     int value;
+     Node* next;
+    };
+void printlistelement(Node* node){
+    while(node!= nullptr){
+        cout<<node->value<<"-";
+        node=node->next;
+    }
+    cout<<"null"<< endl;
+    }
+void insertAtFront(Node** head,int value){
+        // Prepare new node
+    Node* newnode=new Node();
+    newnode->value=value;
+        //place the new node in front of the head
+    newnode->next=*head;
+        //3: Move the head of the list to point to new node
+    *head = newnode;
+}
+int main() {
+    Node* head=new Node();
+    Node* second= new Node();
+    Node* third=new Node();
+    Node* fourth=new Node();
+    head->value=1;
+    head->next=second;
+    second->value=2;
+    second->next=third;
+    third->value=3;
+    third->next=fourth;
+    fourth->value=4;
+    fourth->next=nullptr;
+    insertAtFront(&head,0);
+    printlistelement(head);
+    
+    
+
+
+    return 0;
+}
